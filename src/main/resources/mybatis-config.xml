@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+
+    <settings>
+        <!--将下划线映射为驼峰-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <typeAliases>
+        <!--设置类型别名所对应的包-->
+        <package name="com.lzz.ssm.pojo"/>
+    </typeAliases>
+
+    <plugins>
+        <!--配置分页插件-->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
+
+    <!--引入mybatis的映射文件-->
+    <mappers>
+        <!--<mapper resource="mappers/UserMapper.xml"/>-->
+        <!--
+            以包的方式引入映射文件，但是必须满足两个条件
+            1、mapper接口和映射文件所在的包必须一致
+            2、mapper接口的名字和映射文件的名字必须一致
+        -->
+        <package name="com.lzz.ssm.mapper"/>
+    </mappers>
+
+</configuration>
